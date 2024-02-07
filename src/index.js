@@ -3,7 +3,6 @@
  */
 
  const startButton = document.querySelector(".js-start-button");
- // TODO: Add the missing query selectors:
  const statusSpan = document.querySelector(".js-status");
  const heading = document.querySelector(".js-heading");
  const padContainer = document.querySelector(".js-pad-container");
@@ -19,6 +18,7 @@ let maxRoundCount = 0; // the max number of rounds, varies with the chosen level
 let roundCount = 0; // track the number of rounds that have been played so far
 const saysInterval = 650;
 let levelSelected = 1;
+
 /**
  *
  * The `pads` array contains an array of pad objects.
@@ -43,7 +43,7 @@ let levelSelected = 1;
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound:new Audio("https://github.com/maxrigout/js-dev-final-capstone-starter-simon-says/blob/main/assets/simon-says-sound-2.mp3?raw=true"),
+    sound: new Audio("https://github.com/maxrigout/js-dev-final-capstone-starter-simon-says/blob/main/assets/simon-says-sound-2.mp3?raw=true"),
   },
   {
     color: "blue",
@@ -268,7 +268,7 @@ function activatePads(sequence) {
  * to the current round (roundCount) multiplied by 600ms which is the duration for each pad in the
  * sequence.
  */
-function playComputerTurn() {
+ function playComputerTurn() {
   // disable clicking of the pads
   padContainer.classList.add("unclickable");
   // update the UI
@@ -397,6 +397,7 @@ function selectLevel(level) {
   // select the appropriate button
   levelButtons[level-1].classList.add("level-button-selected");
 }
+
 /**
  * Please do not modify the code below.
  * Used for testing purposes.
