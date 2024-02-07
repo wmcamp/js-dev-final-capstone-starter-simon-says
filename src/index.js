@@ -4,7 +4,6 @@
 
  const startButton = document.querySelector(".js-start-button");
  // TODO: Add the missing query selectors:
- const startButton = document.querySelector(".js-start-button");
  const statusSpan = document.querySelector(".js-status");
  const heading = document.querySelector(".js-heading");
  const padContainer = document.querySelector(".js-pad-container");
@@ -44,7 +43,8 @@ let levelSelected = 1;
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound: new Audio("https://github.com/maxrigout/js-dev-final-capstone-starter-simon-says/blob/main/assets/simon-says-sound-2.mp3?raw=true"),
+    sound:new Audio("https://github.com/maxrigout/js-dev-final-capstone-starter-simon-says/blob/main/assets/simon-says-sound-2.mp3?raw=true"),
+
   },
   {
     color: "blue",
