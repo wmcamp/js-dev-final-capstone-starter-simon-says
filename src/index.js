@@ -94,6 +94,15 @@ function startButtonHandler() {
   return { startButton, statusSpan };
 }
 
+/*
+ The handler function for the level buttons
+*/
+function levelButtonHandler(event) {
+  const { level } = event.target.dataset;
+  if (!level) return;
+
+  selectLevel(Number(level));
+}
 /**
  * Called when one of the pads is clicked.
  *
@@ -199,9 +208,15 @@ function setText(element, text) {
  */
 
 function activatePad(color) {
+  // find the pad object from the color
   const pad = pads.find(p => p.color === color);
+  // activate the pad
   pad.selector.classList.add("activated");
+
+  // play the sound
   pad.sound.play();
+
+  // de-activate the pad after 500ms
   setTimeout(() => {
     pad.selector.classList.remove("activated");
   }, 500);
@@ -253,12 +268,17 @@ function activatePads(sequence) {
  * to the current round (roundCount) multiplied by 600ms which is the duration for each pad in the
  * sequence.
  */
- function playComputerTurn() {
+function playComputerTurn() {
+  // disable clicking of the pads
   padContainer.classList.add("unclickable");
+  // update the UI
   setText(statusSpan, "The computer's turn...");
   setText(heading, `Round ${roundCount} of ${maxRoundCount}`);
+
+  // get the color to click
   const nextColor = getRandomItem(pads).color;
-  computerSequence.push(nextColor);  
+  computerSequence.push(nextColor);
+  
   activatePads(computerSequence)
   setTimeout(() => playHumanTurn(roundCount), roundCount * 600 + 1000); // 5
 }
@@ -366,6 +386,17 @@ function resetGame(text) {
   levelButtonContainer.classList.remove("unclickable")
 }
 
+/*
+  Updates the UI and stores which level was selected
+*/
+function selectLevel(level) {
+  // store the selected level in a global variable
+  levelSelected = level;
+  // unselect all the buttons
+  levelButtons.forEach(btn => btn.classList.remove("level-button-selected"));
+  // select the appropriate button
+  levelButtons[level-1].classList.add("level-button-selected");
+}
 /**
  * Please do not modify the code below.
  * Used for testing purposes.
