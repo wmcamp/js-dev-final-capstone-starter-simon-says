@@ -1,4 +1,4 @@
-const baseURL = process.env.TEST_BASE_URL || "http://localhost:3000";
+const baseURL = process.env.TEST_BASE_URL || "http://localhost:5500";
 
 const msgs = [];
 // Show logs from the page inside labeled container.
