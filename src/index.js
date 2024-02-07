@@ -38,13 +38,12 @@ let levelSelected = 1;
   {
     color: "red",
     selector: document.querySelector(".js-pad-red"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("https://github.com/maxrigout/js-dev-final-capstone-starter-simon-says/blob/main/assets/simon-says-sound-1.mp3?raw=true"),
   },
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
     sound:new Audio("https://github.com/maxrigout/js-dev-final-capstone-starter-simon-says/blob/main/assets/simon-says-sound-2.mp3?raw=true"),
-
   },
   {
     color: "blue",
@@ -103,6 +102,7 @@ function levelButtonHandler(event) {
 
   selectLevel(Number(level));
 }
+
 /**
  * Called when one of the pads is clicked.
  *
